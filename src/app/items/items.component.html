@@ -3,9 +3,12 @@
 </ActionBar>
 
 <StackLayout>
-    <item-wrapper>
-        <item text="Item 1" *display-me></item>
-        <item text="Item 2"></item>
-        <item text="Item 3" *display-me></item>
-    </item-wrapper>
+    <Label text="I am an item wrapper."></Label>
+
+    <GridLayout columns="*, *" rows="auto, auto" style="border-width: 1">
+        <StackLayout *ngFor="let item of items; let idx = index"
+            [col]="idx % 2" [row]="idx / 2">
+            <Label [text]="item"></Label>
+        </StackLayout>
+    </GridLayout>
 </StackLayout>
